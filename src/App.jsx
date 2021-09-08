@@ -3,6 +3,9 @@ import './App.css';
 import Editor from "@monaco-editor/react";
 import Navbar from './Components/Navbar';
 import Axios from 'axios';
+require('dotenv').config();
+
+const URL = process.env.REACT_APP_URL;
 
 function App() {
   const [userCode, setUserCode] = useState(``);
@@ -20,7 +23,7 @@ function App() {
     if (userCode === ``) {
       return
     }
-    Axios.post("http://localhost:8000/compile", { code: userCode, language: userLang, input: userInput }).then((res) => {
+    Axios.post(`${URL}/compile`, { code: userCode, language: userLang, input: userInput }).then((res) => {
       // setUserOutput(res);
       console.log(res.data.output);
       setUserOutput(res.data.output);

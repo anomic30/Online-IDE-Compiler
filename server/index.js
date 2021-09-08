@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const Axios = require("axios");
-
 const app = express();
+const PORT = 8000;
+
 app.use(cors());
 app.use(express.json());
 
@@ -37,6 +38,6 @@ app.post("/compile", (req, res) => {
         });
 })
 
-app.listen(8000, () => {
-    console.log("Server started at port 8000");
+app.listen(process.env.PORT || PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
 });
