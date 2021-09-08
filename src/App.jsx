@@ -35,6 +35,10 @@ function App() {
     })
   }
 
+  function clearOutput() {
+    setUserOutput("");
+  }
+
   return (
     <div className="App">
       <Navbar
@@ -68,7 +72,8 @@ function App() {
             </div>
           ): (
             <div className="output-box">
-              <pre>{userOutput}</pre>
+                <pre>{userOutput}</pre>
+                <button onClick={() => {clearOutput()}} className="clear-btn">Clear</button>
             </div>
           )}
         </div>
