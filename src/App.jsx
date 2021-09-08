@@ -3,6 +3,7 @@ import './App.css';
 import Editor from "@monaco-editor/react";
 import Navbar from './Components/Navbar';
 import Axios from 'axios';
+import spinner from './spinner.svg';
 require('dotenv').config();
 
 const URL = process.env.REACT_APP_URL;
@@ -14,12 +15,14 @@ function App() {
   const [fontSize, setFontSize] = useState(20);
   const [userInput, setUserInput] = useState("");
   const [userOutput, setUserOutput] = useState("");
+  const [loading, setLoading] = useState(false);
   
   const options = {
     fontSize: fontSize
   }
 
   function compile() {
+    setLoading(true);
     if (userCode === ``) {
       return
     }
@@ -27,6 +30,8 @@ function App() {
       // setUserOutput(res);
       console.log(res.data.output);
       setUserOutput(res.data.output);
+    }).then(() => {
+      setLoading(false);
     })
   }
 
@@ -57,9 +62,15 @@ function App() {
             <textarea id="code-inp" onChange={(e)=>setUserInput(e.target.value)}></textarea>
           </div>
           <h4>Output:</h4>
-          <div className="output-box">
-            <pre>{userOutput}</pre>
-          </div>
+          {loading ? (
+            <div className="spinner-box">
+              <img src={spinner} alt="Loading..." />
+            </div>
+          ): (
+            <div className="output-box">
+              <pre>{userOutput}</pre>
+            </div>
+          )}
         </div>
       </div>
     </div>

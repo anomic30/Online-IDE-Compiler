@@ -28,6 +28,17 @@
 .input-box textarea{
   font-size: 16px;
 }
+.spinner-box{
+  flex: 50%;
+  background-color: #242424;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner-box img{
+  width: 200px;
+}
 .output-box{
   flex: 50%;
   background-color: #242424;
