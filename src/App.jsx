@@ -48,7 +48,7 @@ function App() {
     <div className="App">
       {width <= 880 ? (
         <div className="unavailable">
-          <span className="text-mask">Not available for mobile devices yet!</span>
+          <span className="text-mask">Coming to mobile devices soon!</span>
         </div>
       ) : (
         <>
