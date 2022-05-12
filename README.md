@@ -2,7 +2,7 @@
 Tech stack used: React.js, Node.js, Express
 
 ## Try it out yourself here: 
-https://online-compiler-anom.netlify.app/
+https://idecompiler.netlify.app/
 
 ## Snapshots-
 ![](ss1.png)
